@@ -1,0 +1,453 @@
+html{
+  overflow: hidden;
+  touch-action: manipulation;
+  overflow-y: hidden !important;
+}
+
+body {
+  background-color: #282a2d;
+  background-repeat: repeat;
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.2rem;
+  margin: 0;
+  overflow: hidden;
+  perspective: 2000px;
+  text-transform: uppercase;
+}
+.site-wrap {
+  transition: transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+}
+.site-wrap.show-all {
+  transform: rotateY(-15deg) scale(0.2);
+}
+.panel-wrap {
+  height: 100vh;
+  width: 100vw;
+}
+h1 {
+  font-size: 30px;
+  margin: 0;
+  
+}
+.panel-wrap {
+  perspective: 2000px;
+  transition: transform 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.panel-wrap.animate--tilt
+ {
+  transition: transform 0.3s cubic-bezier(0.55, 0, 0.1, 1) 0.3s;
+}
+.panel {
+  height: 100vh;
+  position: absolute;
+  transition: transform 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+  width: 100vw;
+  will-change: transform;
+}
+.panel:before {
+  background-color: transparent;
+  bottom: 0;
+  content: "";
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: background-color 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: 2;
+}
+.show-all .panel:before {
+  pointer-events: all;
+}
+.show-all .panel:before {
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+.animate--shrink.animate .panel {
+  transform: scale(0.9);
+}
+.animate--tilt.animate .panel {
+  transform: scale(0.6) rotateY(-25deg);
+}
+.animate--tilt2.animate .panel {
+  transform: scale(0.8) rotateX(25deg);
+}
+.panel h1 {
+  cursor: default;
+  left: 50%;
+  line-height: 1;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  user-select: none;
+  line-height: 25px;
+}
+.panel[data-x-pos="-2"] {
+  left: -200%;
+}
+.panel[data-x-pos="-1"] {
+  left: -100%;
+}
+.panel[data-x-pos="1"] {
+  left: 100%;
+}
+.panel[data-x-pos="2"] {
+  left: 200%;
+}
+.panel[data-y-pos="-2"] {
+  top: 200%;
+}
+.panel[data-y-pos="-1"] {
+  top: 100%;
+}
+.panel[data-y-pos="1"] {
+  top: -100%;
+}
+.panel[data-y-pos="2"] {
+  top: -200%;
+}
+.panel__zoom {
+  cursor: pointer;
+  left: 50%;
+  opacity: 1;
+  position: absolute;
+  top: 65%;
+  transform: translateX(-50%) translateY(-50%) translateY(-12vmin);
+  transition: opacity 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+  user-select: none;
+  z-index: 10;
+}
+
+.show-all .panel__zoom {
+  pointer-events: none;
+}
+.panel__nav {
+  cursor: pointer;
+  opacity: 0.5;
+  position: absolute;
+  transition: opacity 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+  user-select: none;
+  will-change: opacity;
+}
+.panel__nav--up {
+  left: 50%;
+  top:1rem;
+  transform: translateX(-50%);
+}
+.panel__nav--left {
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg) translateX(-100%);
+  transform-origin: top left;
+}
+.panel__nav--left-top {
+  left: 1rem;
+  top: 1rem;
+}
+.panel__nav--left-down {
+  bottom: 5rem;
+  left: 1rem;
+}
+.panel__nav--right {
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg) translateX(100%);
+  transform-origin: top right;
+}
+.panel__nav--right-top {
+  right: 1rem;
+  top: 1rem;
+}
+.panel__nav--right-down {
+  bottom: 5rem;
+  right: 1rem;
+}
+.panel__nav--down {
+  bottom: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.panel__animation-list {
+  font-size: 3.3vmin;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%) translateY(14vmin);
+}
+.panel__animation-list span {
+  cursor: pointer;
+  display: inline-block;
+  opacity: 0.2;
+  position: relative;
+  transition: opacity 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+  user-select: none;
+}
+.panel__animation-list span:after {
+  border-bottom: 0.3vmin solid transparent;
+  bottom: 0;
+  content: "";
+  left: -1px;
+  position: absolute;
+  right: 0;
+  transition: border-color 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+  width: 100%;
+}
+.panel__animation-list span.active {
+  opacity: 1;
+}
+.panel__animation-list span.active:after,
+.panel__animation-list span:after {
+  border-color: white;
+}
+/*div.panel >h1 {
+  font-size: 24px;
+}*/
+
+.logos{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 35%;
+  padding-left: 50px;
+}
+.logo{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  padding-top: 400px;
+  padding-left: 15%;
+}
+.html img{
+  padding-right: 20px;
+  height: 51px;
+  width: 47px;  
+  animation: floating 6s infinite; 
+}
+.js img{
+  width: 110px;
+  height: 51px;  animation: floating 4s infinite; 
+
+}
+.cpp,.c,.python img{
+  width: 30px;
+  height:50px;
+}
+.cpp img{
+  height: 50px;
+  width: 50px;  animation: floating 3s infinite; 
+
+}
+.c img{
+  height: 50px;
+  width: 50px;  animation: floating 5s infinite; 
+
+}
+.css img{
+  height: 50px;
+  width: 50px;
+  padding-left: 10px;
+    animation: floating 5s infinite; 
+
+  
+}
+.python img{
+  width: 90px;
+  padding-top: 4px;
+  padding-right: 10px;  animation: floating 4s infinite; 
+
+}
+.c {
+  padding-right:30px;
+  padding-top: -10px;
+}
+.c img,.cpp img{
+  height: 45px;
+  width: 40px;
+}
+.cpp img{
+  padding-left: 12px;
+  animation: floating 6s infinite; 
+}
+.python {
+  transform: translateX(-100px);
+  transform: translateY(-90px);
+}
+.cpp{
+  transform: translateX(-100px);
+  transform: translateY(-90px);
+}
+.html {
+  transform: translateX(110px);
+  transform: translateY(90px);
+
+}
+.js {
+  transform: translateX(110px);
+  transform: translateY(90px);
+
+}
+@keyframes floating {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(5px, 10px); }
+    100%   { transform: translate(px, -0px); }   
+}
+button{
+  border-radius: 32px;
+  background-color: transparent;
+  height: 40px;
+  width: 90px;
+  border:1px solid white;
+  font-size: 15px;
+  color: white;
+  opacity: 1;
+  
+}
+html{
+  -webkit-tap-highlight-color: transparent;
+}
+.para{
+  padding-top:30%;
+  letter-spacing: 3px;
+  line-height: 30px;
+}
+.para1,.para2,.para3{
+  margin-left:20px ; 
+  margin-right:15px ;
+  line-height: 30px;
+
+}
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 70%;
+  padding-left: 60px;
+  padding-top: 35%;
+  
+}
+
+
+#message{
+  height: 100px;
+  border-radius: 5px;
+  border-color:white;
+  background-color: transparent;
+  color: white;
+  padding-top: 10px;
+  width: 270px;
+
+}
+input[type="text"], input[type="email"], textarea {
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    height: 30px;
+    border-radius: 5px;
+    padding-top: -40px;
+}
+.aa{
+  width: 100%;
+  padding-top: -90px;
+  line-height: 40px;
+}
+.submit{
+  padding-top: 30px;
+}
+.l{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding-top: 70px;
+  
+}
+
+
+.projects-container {
+      width: 70vw;
+      height: 50vh;
+      margin: 20px auto;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color:#4a4c4f;
+      position: absolute;
+      top: 17%;
+    }
+    .carousel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .project-slide {
+      flex: 0 0 100%;
+      height: 50vh;
+      display: flex;
+      justify-content: center;
+      padding-top: 330px;
+   
+    }
+    
+    .project-info {
+      text-align: center;
+    }
+   
+    .project-title {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+    .project-description {
+      font-size: 12px;
+      padding-bottom: 25px;
+    }
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 45%;
+      transform: translateY(-50%);
+      font-size: 20px;
+    }
+    .prev {
+      left: 30px;
+      
+    }
+    .next {
+      right: 30px;
+    }
+    
+.b{
+  padding-top: -5px;
+}
+.b a{
+  color: white;
+  text-decoration: none;
+  top: 10%;  
+}
+.pop{
+  display: none;
+}
+@media all and (min-width:767px ){
+  .panel{
+    display: none;
+  }
+  body{
+    display: none;
+  }
+  .pop{
+    display: initial;
+  }
+
+
+}

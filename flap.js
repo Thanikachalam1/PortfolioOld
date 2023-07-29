@@ -7,7 +7,7 @@ var $ = (id) => document.getElementById(id);
  var gravityPoints = 0;
  var alive = true;
  const flySpeed = 9;
- const aditionalJump = 10;
+ const aditionalJump = 20;
  function fly(){
     if(alive === true){
         $("player").style.transition = "all 0.5s";

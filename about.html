@@ -3,7 +3,7 @@
 <head>
     <title>Calculator</title>
     <style>
-        /* Add your custom CSS styles here */
+
         body {
             font-family: Arial, sans-serif;
         }
@@ -40,9 +40,19 @@
             width: 222px;
             background-color: #eee;
         }
+        .title{
+          font-size: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: start;
+          padding: 50px;
+        }
     </style>
 </head>
 <body>
+  <div class="title">
+    calculator
+  </div>
     <div class="calculator">
         <input type="text" id="display" readonly>
         <button class="clear" onclick="clearDisplay()">C</button>
@@ -65,7 +75,7 @@
     </div>
 
     <script>
-        // JavaScript code to handle calculator functionality
+
         let input_value = "";
         const display = document.getElementById("display");
 

@@ -24,14 +24,14 @@ body{
  .topCloud{
     position:fixed;
     left:100%; top:0;
-    width:25vmin; height:10em;
+    width:25vmin; height:6em;
     background:linear-gradient(to right, #0f0, green, darkgreen 45%, darkgreen 65%, green, #0f0);
  }
 
  .bottomCloud{
     position:fixed;
     left:100%; bottom:0;
-    width:25vmin; height:10em;
+    width:25vmin; height:6em;
     background:linear-gradient(to right, #0f0, green, darkgreen 45%, darkgreen 65%, green, #0f0);
  }
  .bottomCloud::after{
